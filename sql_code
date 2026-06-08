@@ -1,0 +1,46 @@
+SELECT * FROM SampleSuperstore LIMIT 10;
+SELECT
+    field8 AS Category,
+    SUM(CAST(field10 AS REAL)) AS Total_Sales
+FROM SampleSuperstore
+WHERE field8 <> 'Category'
+GROUP BY field8
+ORDER BY Total_Sales DESC;
+SELECT
+    field8 AS Category,
+    SUM(CAST(field13 AS REAL)) AS Total_Profit
+FROM SampleSuperstore
+WHERE field8 <> 'Category'
+GROUP BY field8
+ORDER BY Total_Profit DESC;
+SELECT
+    field7 AS Region,
+    SUM(CAST(field10 AS REAL)) AS Total_Sales
+FROM SampleSuperstore
+WHERE field7 <> 'Region'
+GROUP BY field7
+ORDER BY Total_Sales DESC;
+SELECT
+    field8 AS Category,
+    SUM(CAST(field11 AS INTEGER)) AS Total_Quantity
+FROM SampleSuperstore
+WHERE field8 <> 'Category'
+GROUP BY field8
+ORDER BY Total_Quantity DESC;
+SELECT
+    field4 AS City,
+    SUM(CAST(field10 AS REAL)) AS Total_Sales
+FROM SampleSuperstore
+WHERE field4 <> 'City'
+GROUP BY field4
+ORDER BY Total_Sales DESC
+LIMIT 10;
+SELECT
+    field7 AS Region,
+    COUNT(*) AS Orders,
+    SUM(CAST(field10 AS REAL)) AS Total_Sales,
+    SUM(CAST(field13 AS REAL)) AS Total_Profit
+FROM SampleSuperstore
+WHERE field7 <> 'Region'
+GROUP BY field7
+ORDER BY Total_Sales DESC;
